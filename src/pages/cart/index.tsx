@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export function Cart(){
 
-    const { cart } = useContext(CartContext);
+    const { cart, total, addItemCart, removeItemCart } = useContext(CartContext);
 
     return (
         <div className="w-full max-w-7xl mx-auto">
@@ -40,7 +40,8 @@ export function Cart(){
                 </strong>
 
                 <div className="flex items-center justify-center gap-3">
-                    <button 
+                    <button
+                        onClick={() => removeItemCart(item)}
                         className="bg-slate-600 px-2 rounded text-white fonte-medium flex items-center justify-center"
                     >
                         -
@@ -49,6 +50,7 @@ export function Cart(){
                     {item.amount}
 
                     <button
+                        onClick={() => addItemCart(item)}
                         className="bg-slate-600 px-2 rounded text-white fonte-medium flex items-center justify-center"
                     >
                         +
@@ -65,7 +67,7 @@ export function Cart(){
             ))}
 
             {cart.length !== 0 && (
-                <p className="font-bold mt-4">Total: R$1.000</p>
+                <p className="font-bold mt-4">Total: {total}</p>
             )}
         </div>
     )
