@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <CartProvider>
       <Toaster
-        position='top-center'
+        position='bottom-center'
         reverseOrder={false}
       />
       <RouterProvider router={router} />
